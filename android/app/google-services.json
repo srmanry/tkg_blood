@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1085571169218",
+    "project_id": "bloodbd-1efaa",
+    "storage_bucket": "bloodbd-1efaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085571169218:android:8399978e233466b85af45b",
+        "android_client_info": {
+          "package_name": "com.example.tkgblood"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzCnyMIdJWfoO1ycnTjj9PXv7QH5xjkYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

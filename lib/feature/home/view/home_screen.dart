@@ -1,5 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_common/get_reset.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:tkgblood/common/widgets/tab_widgest.dart';
+import 'package:tkgblood/profile/profile_from.dart';
+import 'package:tkgblood/profile/view_profile_screen.dart';
 
 import 'package:tkgblood/tabpage/view/a_negative_screen.dart';
 import 'package:tkgblood/tabpage/view/a_positive_screen.dart';
@@ -9,7 +15,7 @@ import 'package:tkgblood/tabpage/view/b_nagative_screen.dart';
 import 'package:tkgblood/tabpage/view/b_positiveScreenView.dart';
 import 'package:tkgblood/tabpage/view/o_nagative_screen.dart';
 import 'package:tkgblood/tabpage/view/o_positive_screen.dart';
-import 'package:tkgblood/widgets/tab_widgest.dart';
+
 
 class HomeScreenView extends StatelessWidget {
   const HomeScreenView({super.key});
@@ -19,11 +25,21 @@ class HomeScreenView extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFB71C1C),
      // backgroundColor: const Color(0xfffffebd0),
-      appBar: AppBar( elevation: 0,toolbarHeight: 40,
-        leading: const Icon(Icons.sort,color: Colors.white,),
+      appBar: AppBar(elevation: 0,toolbarHeight: 40,
+        leading: InkWell(onTap:(){
+          Get.to(ProfileViewScreen());},
+            child: const Icon(Icons.sort,color: Colors.white,)),
         backgroundColor: const Color(0xFFB71C1C),centerTitle: true,
+
         title: const Text("TKG - Blood Bank",style: TextStyle(color: Colors.white),),
         actions: [
+          // InkWell(onTap: (){
+          //   Get.to(ProfileViewScreen());
+          // },
+          //   child: CircleAvatar(
+          //     backgroundImage:(AssetImage("assets/images/user2.jpg")),
+          //   ),
+          // )
           //IconButton( onPressed: () {},
          // icon: InkWell(onTap: (){Get.to(  AddFromScreenView());}, child: const Icon(Icons.person_add,color: Colors.white,)))
         ],
