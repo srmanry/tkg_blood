@@ -49,13 +49,14 @@ class _APositiveScreenViewState extends State<APositiveScreenView> {
             
                           return Material(child:  CustomCardWidget(
                             //
-                             image: '$index',
+                             //image: '$index',
                             name: documentSnapshot["name"],
                             dateOfBirth: documentSnapshot["birthday"],
                             religion:documentSnapshot["religion"] ,
                             profession: documentSnapshot["profession"],
 
                             location: documentSnapshot["district"],
+                            number: documentSnapshot["phoneNumber"],
                          //   indexNumber: documentSnapshot[streamSnapshot.data!.docs.length]
 
 
