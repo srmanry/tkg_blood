@@ -1,40 +1,26 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tkgblood/common/widgets/custom_card.dart';
 import 'package:tkgblood/common/widgets/search_widget.dart';
-import 'package:tkgblood/tabpage/model/aposetive_data.dart';
 
-
-class APositiveScreenView extends StatefulWidget {
-  const APositiveScreenView({super.key});
+class BPositiveScreen extends StatefulWidget {
+  const BPositiveScreen({super.key});
 
   @override
-  State<APositiveScreenView> createState() => _APositiveScreenViewState();
+  State<BPositiveScreen> createState() => _BPositiveScreenState();
 }
 
-class _APositiveScreenViewState extends State<APositiveScreenView> {
+class _BPositiveScreenState extends State<BPositiveScreen> {
   final CollectionReference aPositiveUser =
-  FirebaseFirestore.instance.collection("A_positive_user");
+  FirebaseFirestore.instance.collection("bpositiveUser");
 
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor: Colors.grey[200],
+    return Scaffold(
        // backgroundColor: const Color(0xFFB71C1C),
-      //backgroundColor:   const Color(0xFFEEEEEE),
-      // body: Column(
-      //   children: [
-      //     const SearchWidget(),
-      //     Expanded(
-      //       child:
-      //     ),
-      //   ],
-      // )
-
-      body: Column(
+        backgroundColor:   const Color(0xFFEEEEEE),
+      body:  Column(
         children: [
           const SearchWidget(),
           Expanded(
@@ -46,10 +32,10 @@ class _APositiveScreenViewState extends State<APositiveScreenView> {
                         itemBuilder: (_,index){
                           final DocumentSnapshot documentSnapshot =
                           streamSnapshot.data!.docs[index];
-            
+
                           return Material(child:  CustomCardWidget(
                             //
-                             //image: '$index',
+                            //image: '$index',
                             name: documentSnapshot["name"],
                             dateOfBirth: documentSnapshot["birthday"],
                             religion:documentSnapshot["religion"] ,
@@ -57,15 +43,9 @@ class _APositiveScreenViewState extends State<APositiveScreenView> {
 
                             location: documentSnapshot["district"],
                             number: documentSnapshot["phoneNumber"],
-                         //   indexNumber: documentSnapshot[streamSnapshot.data!.docs.length]
+                            //   indexNumber: documentSnapshot[streamSnapshot.data!.docs.length]
 
-
-            
-            
-                          ),);
-                        });
-            
-                  }
+                          ),);   }); }
                   return Center(
                     child:  Text("data not found"),
                   );
@@ -76,20 +56,3 @@ class _APositiveScreenViewState extends State<APositiveScreenView> {
     );
   }
 }
-
-/*
- ListView.builder(
-              itemCount: apositiveList.length,
-              itemBuilder: (_,index){
-              return  CustomCardWidget(
-
-                image: "assets/images/user2.jpg",
-                name: apositiveList[index].name,
-                location: apositiveList[index].dristict,
-                profession: apositiveList[index].profession,
-                dateOfBirth: apositiveList[index].dateofBirth,
-
-
-              );
-            }),
- */

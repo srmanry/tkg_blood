@@ -4,17 +4,16 @@ import 'package:get/get.dart';
 import 'package:get/get_common/get_reset.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tkgblood/common/widgets/tab_widgest.dart';
-import 'package:tkgblood/profile/profile_from.dart';
-import 'package:tkgblood/profile/view_profile_screen.dart';
+import 'package:tkgblood/feature/profile/screen/view_profile_screen.dart';
+import 'package:tkgblood/feature/tabpage/view/a_negative_screen.dart';
+import 'package:tkgblood/feature/tabpage/view/a_positive_screen.dart';
+import 'package:tkgblood/feature/tabpage/view/ab_nagative_screen.dart';
+import 'package:tkgblood/feature/tabpage/view/ab_positive_screen.dart';
+import 'package:tkgblood/feature/tabpage/view/b_nagative_screen.dart';
+import 'package:tkgblood/feature/tabpage/view/b_positiveScreenView.dart';
+import 'package:tkgblood/feature/tabpage/view/o_nagative_screen.dart';
+import 'package:tkgblood/feature/tabpage/view/o_positive_screen.dart';
 
-import 'package:tkgblood/tabpage/view/a_negative_screen.dart';
-import 'package:tkgblood/tabpage/view/a_positive_screen.dart';
-import 'package:tkgblood/tabpage/view/ab_nagative_screen.dart';
-import 'package:tkgblood/tabpage/view/ab_positive_screen.dart';
-import 'package:tkgblood/tabpage/view/b_nagative_screen.dart';
-import 'package:tkgblood/tabpage/view/b_positiveScreenView.dart';
-import 'package:tkgblood/tabpage/view/o_nagative_screen.dart';
-import 'package:tkgblood/tabpage/view/o_positive_screen.dart';
 
 
 class HomeScreenView extends StatelessWidget {

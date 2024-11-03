@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tkgblood/profile/profile_from.dart';
+
 import 'package:tkgblood/util/dimensions.dart';
 import 'package:tkgblood/util/styles.dart';
+
+import 'profile_from.dart';
 
 class ProfileViewScreen extends StatelessWidget {
   const ProfileViewScreen({super.key});
