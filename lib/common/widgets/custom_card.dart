@@ -8,8 +8,8 @@ import 'package:tkgblood/util/styles.dart';
 class CustomCardWidget extends StatelessWidget {
  final String name;
  final String? image;
- final String dateOfBirth;
- final String profession;
+ final String ?dateOfBirth;
+ final String ?profession;
  final String location;
  final String religion;
  final String number;
@@ -17,11 +17,11 @@ class CustomCardWidget extends StatelessWidget {
 
 
   const CustomCardWidget({super.key,this.image, required this.name,
-  required this.profession,required this.location, required this.dateOfBirth, required this.religion, required this.number,  });
+  this.profession,required this.location,  this.dateOfBirth, required this.religion, required this.number,  });
   final  bodyTextStyle = const TextStyle(fontSize: 14,fontWeight: FontWeight.w500);
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 10),
+    return Padding(padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
                 child: Container(
                  decoration: BoxDecoration( color: Colors.white,
                      borderRadius: BorderRadius.circular(10),border: Border.all(color: Colors.white)    ),
@@ -31,41 +31,49 @@ class CustomCardWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           Row( children: [
-                              Icon(Icons.account_circle_outlined,size: Dimensions.forty,),
-                            // CircleAvatar(
-                            //  // backgroundImage: AssetImage("assets/images/user2.jpg"),
-                            //  // child: Text(image),
-                            // ),
+                             // Icon(Icons.account_circle_outlined,size: Dimensions.forty,),
+                            CircleAvatar(
+                             backgroundImage: AssetImage("assets/images/user2.jpg"),
+                             // child: Text(image),
+                            ),
                              SizedBox(width: Dimensions.twenty,),
-                              Text(name,style: appBodyText,), ],),
+                              Expanded(child: Text(name,style: appBodyText,)), ],),
 
-                          Padding(
+                         /* Padding(
                             padding: const EdgeInsets.symmetric(vertical: Dimensions.eight),
                             child: Row( children: [
                                 Icon(Icons.calendar_month,size: Dimensions.thirty,color: Colors.green,),
                               SizedBox(width: Dimensions.thirtyFive,),
-                              Text(dateOfBirth,style: appBodyText,)
+                              Text("",style: appBodyText,)
                               ],),
-                          ),
+                          ),*/
 
-
-                          Row(children: [
-                            Icon(Icons.favorite_border,size: Dimensions.thirty,color: Colors.red,),
+                      Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(Icons.bloodtype_outlined,color: Colors.red,size: Dimensions.thirty),
+                          SizedBox(width: Dimensions.thirtyFive,),
+                          Text('A+')
+                        ],
+                      ),
+                          SizedBox(height: 8,),
+                      /*    Row(children: [
+                            Icon(Icons.favorite,size: Dimensions.thirty,color: Colors.black,),
                             SizedBox(width: Dimensions.thirtyFive,),
                             Text(religion,style: appBodyText,),
-                          ], ),
+                          ], ),*/
 
-                     Padding(
+               /*      Padding(
                        padding: const EdgeInsets.symmetric(vertical: Dimensions.eight),
                        child: Row(children: [
                           Icon(Icons.work_history_outlined,size: Dimensions.thirty,color: Colors.amber,),
                          SizedBox(width: Dimensions.thirtyFive,),
-                         Text(profession,style: appBodyText,),
+                         Text("",style: appBodyText,),
                         ], ),
-                     ),
+                     ),*/
 
                           Row(children: [
-                              const Icon(Icons.location_city_outlined,size: Dimensions.thirty,color: Colors.blue,),
+                              const Icon(Icons.location_city_outlined,size: Dimensions.thirty,color: Colors.black,),
                             const SizedBox(width: Dimensions.thirtyFive,),
                               Text(location,style: appBodyText,),
                             ],

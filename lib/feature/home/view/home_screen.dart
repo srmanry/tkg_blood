@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_common/get_reset.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tkgblood/common/widgets/tab_widgest.dart';
+import 'package:tkgblood/feature/home/widgets/custom_drawer.dart';
 import 'package:tkgblood/feature/profile/screen/view_profile_screen.dart';
 import 'package:tkgblood/feature/tabpage/view/a_negative_screen.dart';
 import 'package:tkgblood/feature/tabpage/view/a_positive_screen.dart';
@@ -14,6 +15,8 @@ import 'package:tkgblood/feature/tabpage/view/b_positiveScreenView.dart';
 import 'package:tkgblood/feature/tabpage/view/o_nagative_screen.dart';
 import 'package:tkgblood/feature/tabpage/view/o_positive_screen.dart';
 
+import 'notification_screen.dart';
+
 
 
 class HomeScreenView extends StatelessWidget {
@@ -22,25 +25,33 @@ class HomeScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: const Color(0xFFB71C1C),
      // backgroundColor: const Color(0xfffffebd0),
+      drawer: Drawer(
+        child: DrawerWidget()
+      ),
       appBar: AppBar(elevation: 0,toolbarHeight: 40,
-        leading: InkWell(onTap:(){
+     /*   leading: InkWell(onTap:(){
           Get.to(ProfileViewScreen());},
             child: const Icon(Icons.sort,color: Colors.white,)),
+*/
+
+        foregroundColor: Colors.white70,
         backgroundColor: const Color(0xFFB71C1C),centerTitle: true,
+
 
         title: const Text("TKG - Blood Bank",style: TextStyle(color: Colors.white),),
         actions: [
-          // InkWell(onTap: (){
-          //   Get.to(ProfileViewScreen());
-          // },
-          //   child: CircleAvatar(
-          //     backgroundImage:(AssetImage("assets/images/user2.jpg")),
-          //   ),
-          // )
-          //IconButton( onPressed: () {},
-         // icon: InkWell(onTap: (){Get.to(  AddFromScreenView());}, child: const Icon(Icons.person_add,color: Colors.white,)))
+    /*      InkWell(onTap: (){
+            Get.to(ProfileViewScreen());
+          },
+            child: CircleAvatar(
+              backgroundImage:(AssetImage("assets/images/user2.jpg")),
+            ),
+          )*/
+          IconButton( onPressed: () {},
+          icon: InkWell(onTap: (){Get.to( NotificationScreenView());}, child: const Icon(Icons.notifications_active,color: Colors.white,)))
         ],
       ),
       body: Column(children: [ Expanded( flex: 2,
@@ -64,10 +75,13 @@ class HomeScreenView extends StatelessWidget {
                                   Tab( child: TabWidget(tabName: "A -",),),
                                   Tab(child: TabWidget(tabName: "B +",),),
                                   Tab(child: TabWidget(tabName: "B -",),),
+
+                                  Tab(child: TabWidget(tabName: "O +",),),
+                                  Tab(child: TabWidget(tabName: "O -",),),
                                   Tab(child: TabWidget(tabName: "AB +",), ),
                                   Tab(child: TabWidget(tabName: "AB -",),),
-                                  Tab(child: TabWidget(tabName: "O +",),),
-                                  Tab(child: TabWidget(tabName: "O -",),),]),),),), ),
+
+                                ]),),),), ),
 
                     const Expanded  (child: TabBarView(children: [
                         APositiveScreenView(),
@@ -84,7 +98,7 @@ class HomeScreenView extends StatelessWidget {
 
 
         ], ),
- //    bottomNavigationBar:BottomNavigationBar(items: [])
+
     );
   }
 }

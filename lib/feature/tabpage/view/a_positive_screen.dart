@@ -51,9 +51,9 @@ class _APositiveScreenViewState extends State<APositiveScreenView> {
                             //
                              //image: '$index',
                             name: documentSnapshot["name"],
-                            dateOfBirth: documentSnapshot["birthday"],
+                           // dateOfBirth: documentSnapshot["birthday"],
                             religion:documentSnapshot["religion"] ,
-                            profession: documentSnapshot["profession"],
+                            //profession: documentSnapshot["profession"],
 
                             location: documentSnapshot["district"],
                             number: documentSnapshot["phoneNumber"],

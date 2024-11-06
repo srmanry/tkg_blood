@@ -11,6 +11,7 @@ import 'package:tkgblood/api_handle/auth/firebase_auth.dart';
 import 'package:tkgblood/common/widgets/custom_textfild.dart';
 import 'package:tkgblood/feature/home/view/home_screen.dart';
 import 'package:tkgblood/util/dimensions.dart';
+import 'package:tkgblood/util/styles.dart';
 
 
 class AddFromScreenView extends StatefulWidget {
@@ -142,7 +143,7 @@ class _AddFromScreenViewState extends State<AddFromScreenView> {
                     child: Icon(Icons.add_a_photo,color: Colors.green,),
                 ),)],),
             //  const SizedBox(height: 10,),
-               const Padding( padding: EdgeInsets.all(8.0),child: Text("Name"), ),
+               const Padding( padding: EdgeInsets.all(8.0),child: Text("Name",style: textMedium,), ),
                CustomTextField(controller: userNameController,
                 focusColor: Colors.black,hinText: "Name",),
 
@@ -152,18 +153,21 @@ class _AddFromScreenViewState extends State<AddFromScreenView> {
               // CustomTextField( controller: bloodGroupController,focusColor: Colors.black, hinText: "Blood Group",),
            Container(
            decoration: BoxDecoration(color: Color(0xFFF3F3F3), borderRadius: BorderRadius.circular(Dimensions.defaultSize),),
-           child: DropdownButton<String>(
-             focusColor: Colors.white70,autofocus: false,
-             underline: SizedBox(),
+           child: Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: DropdownButton<String>(
+               focusColor: Colors.white70,autofocus: false,
+               underline: SizedBox(),
 
-             iconSize: Dimensions.thirtyFive,icon: Icon(Icons.keyboard_arrow_down),
-             isExpanded: true,
-             style: TextStyle(fontWeight: FontWeight.w500,fontSize: Dimensions.fontSizeLarge,color: Colors.red),
-             hint: Text('Select Blood Group'), // Placeholder when no item is selected
-             value: selectedValue,
-             items: bloodList.map((String item) {return DropdownMenuItem<String>(value: item, child: Padding(padding: const EdgeInsets.all(8.0), child: Text(item),),);
-             }).toList(),
-             onChanged: (String? newValue) {setState(() {selectedValue = newValue;});},),),
+               iconSize: Dimensions.thirtyFive,icon: Icon(Icons.keyboard_arrow_down),
+               isExpanded: true,
+               style: TextStyle(fontWeight: FontWeight.w500,fontSize: Dimensions.fontSizeLarge,color: Colors.red),
+               hint: Text('Select Blood Group'), // Placeholder when no item is selected
+               value: selectedValue,
+               items: bloodList.map((String item) {return DropdownMenuItem<String>(value: item, child: Padding(padding: const EdgeInsets.all(8.0), child: Text(item),),);
+               }).toList(),
+               onChanged: (String? newValue) {setState(() {selectedValue = newValue;});},),
+           ),),
 
              // CustomTextField(controller: dateOfBirthController,focusColor: Colors.black,hinText: "Date of birth",),
 
@@ -249,7 +253,7 @@ class _AddFromScreenViewState extends State<AddFromScreenView> {
  }
 
 
-  // Function to send data to Firebase Firestore
+
   Future<void> sendDataToFirestore(String value) async {
     try {
       // Reference to the Firestore collection

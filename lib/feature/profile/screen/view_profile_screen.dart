@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:tkgblood/util/dimensions.dart';
 import 'package:tkgblood/util/styles.dart';
 
+import 'profile_edit_screen.dart';
 import 'profile_from.dart';
 
 class ProfileViewScreen extends StatelessWidget {
@@ -20,34 +21,68 @@ class ProfileViewScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.edit,color: Colors.white,),
+            child: InkWell(onTap: (){Get.to(ProfileEditScreenView());},
+            child: Icon(Icons.edit,color: Colors.white,)),
           )],
       ),
 
       body: Padding(
         padding: const EdgeInsets.all(Dimensions.fifTeen),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
-          CircleAvatar(
-            backgroundImage: AssetImage("assets/images/user2.jpg"),
-            radius: Dimensions.thirty,
+          Center(
+            child: CircleAvatar(
+              backgroundImage: AssetImage("assets/images/user2.jpg"),
+              radius: Dimensions.thirty,
+            ),
           ),
           
           SizedBox(height: Dimensions.twenty,),
-          Text("Dinmas",style: appBodyText,),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            children: [
+                Text('Name',style: appBodyText,),
+                Text("Dinmas",style: appBodyText,),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: Dimensions.fifTeen),
-            child: Text("01/03/2001",style: appBodyText,),
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Name',style: appBodyText,),
+                Text("01/03/2001",style: appBodyText,),
+              ],
+            ),
           ),
-          Text("Student",style: appBodyText,),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Profession',style: appBodyText,),
+              Text("Student",style: appBodyText,),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: Dimensions.fifTeen),
-            child: Text("A+",style: appBodyText,),
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Blood Group',style: appBodyText,),
+                Text("A+",style: appBodyText,),
+              ],
+            ),
           ),
-          Text("0176325892"),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Phone Number'),
+              Text("0176325892"),
+            ],
+          ),
 
           Padding(
             padding: const EdgeInsets.symmetric(vertical: Dimensions.defaultSize),
-            child: Text("Thakurgaon",style: appBodyText,),
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('District'),
+                Text("Thakurgaon",style: appBodyText,),
+              ],
+            ),
           ),
 
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [
