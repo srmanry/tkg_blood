@@ -1,3 +1,4 @@
+/*
 import 'dart:io';
 
 
@@ -16,79 +17,16 @@ import 'package:tkgblood/util/styles.dart';
 
 class AddFromScreenView extends StatefulWidget {
   const AddFromScreenView({super.key});
-
   @override
-  State<AddFromScreenView> createState() => _AddFromScreenViewState();
-}
+  State<AddFromScreenView> createState() => _AddFromScreenViewState();}
 
 class _AddFromScreenViewState extends State<AddFromScreenView> {
  final  bodyTextStyle = const TextStyle(fontSize: 14,);
 
- TextEditingController userNameController = TextEditingController();
-
- TextEditingController dateOfBirthController = TextEditingController();
-
- TextEditingController bloodGroupController = TextEditingController();
-
- TextEditingController professionController = TextEditingController();
-
- TextEditingController phoneNumberController = TextEditingController();
-
- TextEditingController religionController = TextEditingController();
-
- TextEditingController districtNameController = TextEditingController();
- TextEditingController emailController = TextEditingController();
- TextEditingController passwordController = TextEditingController();
-
-
-// Text Controller dispose
- @override
-  void dispose() {
-    // TODO: implement dispose
-   userNameController.dispose();
-   dateOfBirthController.dispose();
-   religionController.dispose();
-   professionController.dispose();
-   phoneNumberController.dispose();
-   bloodGroupController.dispose();
-   districtNameController.dispose();
-    super.dispose();
-  }
-
-  final FirebaseAuthService _auth =FirebaseAuthService();
- final ImagePicker _imagePicker =ImagePicker();
- Future<void> pickImage()async {
-   _imagePicker.pickImage(source: ImageSource.gallery);
- }
  int selectedIndex= 0;
- File?pickedImage;
- showAlertBox(){
-   return showDialog(context: context, builder: (BuildContext context){
-     return AlertDialog(
-
-       title: Text("Set picture"),
-       content: Column(
-      mainAxisSize: MainAxisSize.min ,
-       children: [
-         ListTile(onTap: (){picImage(ImageSource.camera);
-           Navigator.pop(context);
-           },
-           leading: Icon(Icons.camera_alt),
-           title: Text("Camera"),
-         ),
-         ListTile(onTap: (){picImage(ImageSource.gallery);
-         Navigator.pop(context);},
-           leading: Icon(Icons.image),
-           title: Text("Gallery"),
-         ),
-       ],),
-     );
-   });
- }
-
-
   String? selectedValue;
  List<String> bloodList =["A+","A-","B+","B-","AB+","AB-","O+","O-"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,46 +41,7 @@ class _AddFromScreenViewState extends State<AddFromScreenView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-//               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   Text('Welcome to\nTkG - Blood Bank',style: TextStyle(fontSize: Dimensions.fontSizeLarge, color: Color(0xFFB71C1C),fontWeight: FontWeight.bold),),
-//                   //const Image(image: AssetImage("assets/images/blood_image.png"),height: 120,),
-//                 ]
-//               ),
-//
-// SizedBox(height: Dimensions.defaultSize,),
 
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Text("Profile Image"),
-                      Icon(Icons.arrow_forward,color: Colors.green,),
-                    ],
-                  ),
-                ),
-                InkWell(onTap: (){showAlertBox();},
-                  child: pickedImage!=null? Container(
-                    height: 50,width: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Dimensions.defaultSize),
-                      border: Border.all(color: Colors.red),
-
-                    ),
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(Dimensions.defaultSize),
-                          child: Image(image: FileImage(pickedImage!,),fit: BoxFit.cover,))):
-
-
-                  Container(height: 50,width: 50,
-                      decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Dimensions.defaultSize),
-                      border: Border.all(color: Colors.red),),
-                    child: Icon(Icons.add_a_photo,color: Colors.green,),
-                ),)],),
-            //  const SizedBox(height: 10,),
                const Padding( padding: EdgeInsets.all(8.0),child: Text("Name",style: textMedium,), ),
                CustomTextField(controller: userNameController,
                 focusColor: Colors.black,hinText: "Name",),
@@ -214,58 +113,7 @@ class _AddFromScreenViewState extends State<AddFromScreenView> {
 
 
 
- void signUp()async{
-   String userName = userNameController.text;
-
-   String dateOfBirth = dateOfBirthController.text;
-   String bloodGroup = selectedValue==0?"A+":selectedValue==1?"B+":"B-";
-   String religion = religionController.text;
-   String profession = professionController.text;
-   String number = phoneNumberController.text;
-   String email = emailController.text;
-   String password = passwordController.text;
-
-
-   User?user = await _auth.signUpWithEmailPassword(email, password);
-
-   if(user !=  null){
-     print("Sign UP Successfully create");
-     Get.to(HomeScreenView());}
-   else{print('++++++++++++++');}}
-
- picImage(ImageSource imageSource)async{
-   try{
-     final photo = await ImagePicker().
-     pickImage(source: imageSource);
-     if(photo == null)return Icon(Icons.person);
-     final tempImage =File(photo.path);
-
-
-      setState(() {
-        pickedImage=tempImage;
-      });
-
-   }
-
-   catch(e){
-    print(e);
-   }
- }
 
 
 
-  Future<void> sendDataToFirestore(String value) async {
-    try {
-      // Reference to the Firestore collection
-      await FirebaseFirestore.instance.collection(selectedValue==0?'A_positive_user':selectedIndex==1?"bpositiveUser":"").add({
-        'selectedValue': value,
-        'timestamp': FieldValue.serverTimestamp(), // Optional: Add timestamp
-       });
-      print("============= ${value}");} catch (e)
-      {
-      print("Failed to send data: $e");
-    }}
-
-}
-
-
+*/

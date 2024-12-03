@@ -17,6 +17,7 @@ class APositiveScreenView extends StatefulWidget {
 class _APositiveScreenViewState extends State<APositiveScreenView> {
   final CollectionReference aPositiveUser =
   FirebaseFirestore.instance.collection("A_positive_user");
+  bool active = true;
 
 
   @override
@@ -34,7 +35,7 @@ class _APositiveScreenViewState extends State<APositiveScreenView> {
       //   ],
       // )
 
-      body: Column(
+      body:Column(
         children: [
           const SearchWidget(),
           Expanded(
@@ -66,7 +67,8 @@ class _APositiveScreenViewState extends State<APositiveScreenView> {
                 }),
           ),
         ],
-      ),
+      )
+            //:Center(child: Text("not found data")),
     );
   }
 }

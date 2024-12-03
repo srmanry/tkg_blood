@@ -1,4 +1,6 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_common/get_reset.dart';
@@ -19,8 +21,15 @@ import 'notification_screen.dart';
 
 
 
-class HomeScreenView extends StatelessWidget {
+class HomeScreenView extends StatefulWidget {
   const HomeScreenView({super.key});
+
+  @override
+  State<HomeScreenView> createState() => _HomeScreenViewState();
+}
+
+class _HomeScreenViewState extends State<HomeScreenView> {
+  bool active = true;
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +39,11 @@ class HomeScreenView extends StatelessWidget {
      // backgroundColor: const Color(0xfffffebd0),
       drawer: Drawer(
         child: DrawerWidget()
+
       ),
       appBar: AppBar(elevation: 0,toolbarHeight: 40,
-     /*   leading: InkWell(onTap:(){
-          Get.to(ProfileViewScreen());},
-            child: const Icon(Icons.sort,color: Colors.white,)),
-*/
+
+
 
         foregroundColor: Colors.white70,
         backgroundColor: const Color(0xFFB71C1C),centerTitle: true,
@@ -43,15 +51,19 @@ class HomeScreenView extends StatelessWidget {
 
         title: const Text("TKG - Blood Bank",style: TextStyle(color: Colors.white),),
         actions: [
-    /*      InkWell(onTap: (){
-            Get.to(ProfileViewScreen());
-          },
-            child: CircleAvatar(
-              backgroundImage:(AssetImage("assets/images/user2.jpg")),
-            ),
-          )*/
-          IconButton( onPressed: () {},
-          icon: InkWell(onTap: (){Get.to( NotificationScreenView());}, child: const Icon(Icons.notifications_active,color: Colors.white,)))
+
+          Transform.scale(
+            scale: 0.6,
+
+            child: CupertinoSwitch(
+                activeColor: Colors.green,
+                trackColor: Colors.grey,
+                value: active, onChanged:(value){
+              setState(() {
+                active =value;
+
+              });
+            }),),
         ],
       ),
       body: Column(children: [ Expanded( flex: 2,

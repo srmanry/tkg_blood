@@ -22,8 +22,7 @@ class CustomCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
-                child: Container(
-                 decoration: BoxDecoration( color: Colors.white,
+                child: Container(decoration: BoxDecoration( color: Colors.white,
                      borderRadius: BorderRadius.circular(10),border: Border.all(color: Colors.white)    ),
                   child: Stack(children: [
                   Column( children: [
@@ -87,9 +86,8 @@ class CustomCardWidget extends StatelessWidget {
                                   child: Padding(padding: const EdgeInsets.all(8.0),
                                     child: InkWell(
                                       child: Container(height: 30,width: 45,decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        //color: Colors.green
-                                      ),
+                                        borderRadius: BorderRadius.circular(5),),
+
                                        //  child: Center(child: Text("Call",style: textMedium.copyWith(color: Colors.white),)),
                                          child: Icon(Icons.phone_forwarded,color: Colors.green[700],)
                                       ),

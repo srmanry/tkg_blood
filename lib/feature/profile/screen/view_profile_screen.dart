@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tkgblood/feature/auth/view/sign_up_view.dart';
 
 import 'package:tkgblood/util/dimensions.dart';
 import 'package:tkgblood/util/styles.dart';
 
 import 'profile_edit_screen.dart';
-import 'profile_from.dart';
+import '../../auth/view/sing_up_screen.dart';
 
 class ProfileViewScreen extends StatelessWidget {
   const ProfileViewScreen({super.key});
@@ -92,7 +93,7 @@ class ProfileViewScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: Dimensions.defaultSize),
             child: InkWell(onTap: (){
-              Get.to(AddFromScreenView());
+              Get.to(SignUpScreenView());
             },child: Text("Add")),
           ),
         ],),

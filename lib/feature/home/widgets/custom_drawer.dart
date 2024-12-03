@@ -1,10 +1,16 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tkgblood/feature/profile/screen/profile_from.dart';
+import 'package:tkgblood/api_handle/auth/firebase_auth.dart';
+import 'package:tkgblood/feature/auth/view/sign_up_view.dart';
+import 'package:tkgblood/feature/profile/screen/profile_edit_screen.dart';
+import 'package:tkgblood/feature/auth/view/sing_up_screen.dart';
 import 'package:tkgblood/util/dimensions.dart';
 import 'package:tkgblood/util/styles.dart';
 
@@ -17,21 +23,18 @@ class DrawerWidget extends StatefulWidget {
 
 class _DrawerWidgetState extends State<DrawerWidget> {
   bool active = true;
+  final currentUser = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        foregroundColor: Colors.white70,
+      appBar: AppBar(foregroundColor: Colors.white70,
         backgroundColor: const Color(0xFFB71C1C),centerTitle: true,
-
-
-        title: const Text("TKG - Blood Bank",style: TextStyle(color: Colors.white),),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(Dimensions.defaultSize),
+          title: const Text("TKG - Blood Bank",style: TextStyle(color: Colors.white),)),
+        body: Padding(padding: const EdgeInsets.all(Dimensions.defaultSize),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             SizedBox(height: Dimensions.thirty,),
             CircleAvatar(radius: Dimensions.thirty,),
             SizedBox(height: Dimensions.fifTeen,),
@@ -53,7 +56,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Edit Profile",style: appBodyText.copyWith(fontSize: Dimensions.fontSizeLarge),),
-                Icon(Icons.edit,size: Dimensions.thirtyFive,color: Colors.green,)
+                InkWell(onTap: (){Get.to(ProfileEditScreenView);},
+                child: Icon(Icons.edit,size: Dimensions.thirtyFive,color: Colors.green,))
               ],
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,24 +67,17 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   scale: 0.6,
 
                   child: CupertinoSwitch(
-                     // offLabelColor: Colors.grey,
                       activeColor: Colors.green,
-                     //focusColor: Colors.blue,
-                     // onLabelColor: Colors.blue,
-
                       trackColor: Colors.grey,
                       value: active, onChanged:(value){
                     setState(() {
                       active =value;
 
                     });
-                  }),
-                ),
-              ],
-            ),
-            InkWell(onTap: (){
-              Get.to(AddFromScreenView());
-            },
+                  }),),
+              ],   ),
+            Text("Log out"),
+            InkWell(onTap: (){Get.to(SignUpScreenView());},
             child: Text("About Us",style: textMedium,)),
             Text("Help ?",style: textMedium,),
 
